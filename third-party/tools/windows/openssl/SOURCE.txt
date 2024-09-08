@@ -1,0 +1,5 @@
+https://github.com/openssl/openssl
+
+VERSION: https://github.com/openssl/openssl/tree/openssl-3.3.2
+
+Pre-compiled binaries provided by Shining Light Productions (https://slproweb.com/products/Win32OpenSSL.html)

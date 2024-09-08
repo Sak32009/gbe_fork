@@ -1,0 +1,3 @@
+https://github.com/brofield/simpleini
+
+VERSION: https://github.com/brofield/simpleini/releases/tag/v4.22

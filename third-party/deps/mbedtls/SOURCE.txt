@@ -1,0 +1,3 @@
+https://github.com/Mbed-TLS/mbedtls
+
+VERSION: https://github.com/Mbed-TLS/mbedtls/releases/tag/v3.6.1

@@ -1,0 +1,3 @@
+https://github.com/premake/premake-core
+
+VERSION: https://github.com/premake/premake-core/releases/tag/v5.0.0-beta2

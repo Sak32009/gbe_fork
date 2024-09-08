@@ -1,34 +1,58 @@
-[submodule "third-party/build/win"]
-  path = third-party/build/win
-  url = ./
-  branch = third-party/build/win
+[submodule "third-party/deps/curl/src"]
+	path = third-party/deps/curl/src
+	url = https://github.com/curl/curl.git
 
-[submodule "third-party/build/linux"]
-  path = third-party/build/linux
-  url = ./
-  branch = third-party/build/linux
+[submodule "third-party/deps/ingame_overlay/src"]
+	path = third-party/deps/ingame_overlay/src
+	url = https://github.com/Nemirtingas/ingame_overlay.git
+  fetchRecurseSubmodules = true
 
-[submodule "third-party/common/win"]
-  path = third-party/common/win
-  url = ./
-  branch = third-party/common/win
+[submodule "third-party/deps/libssq/src"]
+	path = third-party/deps/libssq/src
+	url = https://github.com/BinaryAlien/libssq.git
 
-[submodule "third-party/common/linux"]
-  path = third-party/common/linux
-  url = ./
-  branch = third-party/common/linux
+[submodule "third-party/deps/mbedtls/src"]
+	path = third-party/deps/mbedtls/src
+	url = https://github.com/Mbed-TLS/mbedtls.git
+  fetchRecurseSubmodules = true
 
-[submodule "third-party/deps/win"]
-  path = third-party/deps/win
-  url = ./
-  branch = third-party/deps/win
+[submodule "third-party/deps/protobuf/src"]
+	path = third-party/deps/protobuf/src
+	url = https://github.com/protocolbuffers/protobuf.git
+  fetchRecurseSubmodules = true
 
-[submodule "third-party/deps/linux"]
-  path = third-party/deps/linux
-  url = ./
-  branch = third-party/deps/linux
+[submodule "third-party/deps/zlib/src"]
+	path = third-party/deps/zlib/src
+	url = https://github.com/madler/zlib.git
 
-[submodule "third-party/deps/common"]
-  path = third-party/deps/common
-  url = ./
-  branch = third-party/deps/common
+#[submodule "third-party/libs/detours/src"]
+#  path = third-party/libs/detours/src
+#  url = https://github.com/microsoft/Detours.git
+
+[submodule "third-party/libs/fifo_map/src"]
+	path = third-party/libs/fifo_map/src
+	url = https://github.com/nlohmann/fifo_map.git
+
+#[submodule "third-party/libs/gamepad/src"]
+#  path = third-party/libs/gamepad/src
+#  url = https://github.com/mtwilliams/libgamepad.git
+
+[submodule "third-party/libs/json/src"]
+	path = third-party/libs/json/src
+	url = https://github.com/nlohmann/json.git
+
+[submodule "third-party/libs/sha1/src"]
+	path = third-party/libs/sha1/src
+	url = https://github.com/vog/sha1.git
+
+[submodule "third-party/libs/simpleini/src"]
+	path = third-party/libs/simpleini/src
+	url = https://github.com/brofield/simpleini.git
+
+[submodule "third-party/libs/stb/src"]
+	path = third-party/libs/stb/src
+	url = https://github.com/nothings/stb.git
+
+[submodule "third-party/libs/utfcpp/src"]
+	path = third-party/libs/utfcpp/src
+	url = https://github.com/nemtrif/utfcpp.git

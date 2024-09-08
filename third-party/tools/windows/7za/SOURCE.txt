@@ -1,0 +1,3 @@
+https://7-zip.org
+
+VERSION: https://sourceforge.net/projects/sevenzip/files/7-Zip/24.08

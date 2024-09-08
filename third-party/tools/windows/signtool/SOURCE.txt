@@ -1,0 +1,3 @@
+https://learn.microsoft.com/windows/win32/seccrypto/signtool
+
+VERSION: Windows SDK 10.0.22621.0

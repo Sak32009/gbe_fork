@@ -1,0 +1,3 @@
+https://github.com/microsoft/vswhere
+
+VERSION: https://github.com/microsoft/vswhere/releases/tag/3.1.7

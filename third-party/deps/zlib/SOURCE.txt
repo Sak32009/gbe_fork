@@ -1,0 +1,3 @@
+https://github.com/madler/zlib
+
+VERSION: https://github.com/madler/zlib/releases/tag/v1.3.1

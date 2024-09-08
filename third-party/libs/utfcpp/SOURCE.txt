@@ -1,0 +1,3 @@
+https://github.com/nemtrif/utfcpp
+
+VERSION: https://github.com/nemtrif/utfcpp/releases/tag/v4.0.5
