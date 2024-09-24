@@ -1,6 +1,13 @@
 @echo off
 setlocal EnableDelayedExpansion
 cd /d "%~dp0"
+cd ../../
+
+set "_ROOT=%cd%"
+set "_SCRIPTS=%_ROOT%\scripts"
+set "_THIRD_PARTY_WIN=%_ROOT%\third-party\tools\windows"
+set "_BUILD_DIR=%_ROOT%\build"
+set "_PREMAKE_DEPS_LUA=%_ROOT%\premake5-deps.lua"
 
 set /a "MAX_THREADS=2"
 if defined NUMBER_OF_PROCESSORS (
@@ -30,7 +37,7 @@ set /a "BUILD_DEPS=0"
 
 :args_loop_end
   :: check premake
-  set "PREMAKE_EXE=third-party\common\win\premake\premake5.exe"
+  set "PREMAKE_EXE=%_THIRD_PARTY_WIN%\premake\dist\premake5.exe"
   if not exist "%PREMAKE_EXE%" (
     1>&2 echo:premake wasn't found
     goto :end_script_with_err
@@ -39,14 +46,14 @@ set /a "BUILD_DEPS=0"
   :: build deps
   if %BUILD_DEPS% equ 1 (
     set "CMAKE_GENERATOR=Visual Studio 17 2022"
-    call "%PREMAKE_EXE%" --file="premake5-deps.lua" --64-build --32-build --all-ext --all-build --j=2 --verbose --clean --os=windows vs2022 || (
+    "%PREMAKE_EXE%" --file="%_PREMAKE_DEPS_LUA%" --all-build --64-build --32-build --j=2 --clean --verbose --os=windows vs2022 || (
       goto :end_script_with_err
     )
     goto :end_script
   )
 
   :: check vswhere
-  set "VSWHERE_EXE=third-party\common\win\vswhere\vswhere.exe"
+  set "VSWHERE_EXE=%_THIRD_PARTY_WIN%\vswhere\dist\vswhere.exe"
   if not exist "%VSWHERE_EXE%" (
     1>&2 echo:vswhere wasn't found
     goto :end_script_with_err
@@ -63,12 +70,12 @@ set /a "BUILD_DEPS=0"
   )
 
   :: create .sln
-  call "%PREMAKE_EXE%" --file="premake5.lua" --genproto --dosstub --winrsrc --winsign --os=windows vs2022 || (
+  "%PREMAKE_EXE%" --file="premake5.lua" --genproto --dosstub --winrsrc --winsign --os=windows vs2022 || (
     goto :end_script_with_err
   )
 
   :: check .sln
-  set "SLN_FILE=build\project\vs2022\win\gbe.sln"
+  set "SLN_FILE=%_BUILD_DIR%\project\vs2022\win\gbe.sln"
   if not exist "%SLN_FILE%" (
     1>&2 echo:.sln file wasn't found
     goto :end_script_with_err
@@ -86,7 +93,7 @@ set /a "BUILD_DEPS=0"
       for %%C in (%BUILD_TARGETS%) do (
         set "BUILD_TARGET=%%C"
         echo. & echo:building !BUILD_TARGET! !BUILD_TYPE! !BUILD_PLATFORM!
-        call "%MSBUILD_EXE%" /nologo -m:%MAX_THREADS% -v:n /p:Configuration=!BUILD_TYPE!,Platform=!BUILD_PLATFORM! /target:!BUILD_TARGET! "%SLN_FILE%" || (
+        "%MSBUILD_EXE%" /nologo -m:%MAX_THREADS% -v:n /p:Configuration=!BUILD_TYPE!,Platform=!BUILD_PLATFORM! /target:!BUILD_TARGET! "%SLN_FILE%" || (
           goto :end_script_with_err
         )
       )
