@@ -17,6 +17,8 @@
 !/third-party/libs/detours/src
 !/third-party/libs/gamepad/src
 
+#/third-party/tools/win/sign/*.pem
+#/third-party/tools/win/sign/*.pfx
 
 # TOOLS
 
